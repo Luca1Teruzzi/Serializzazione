@@ -5,6 +5,16 @@
  */
 package seriazlizzazione;
 
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author teruzzi.luca
@@ -16,6 +26,32 @@ public class Seriazlizzazione {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Studente a=new Studente("Luca", "Teruzzi", 30);
+        try { 
+           
+            FileOutputStream o=new FileOutputStream("test.ser");
+            ObjectOutputStream os=new ObjectOutputStream(o);
+            
+//                os.writeObject(9);
+                
+            
+            os.writeObject(9);
+            os.writeObject("Ciao");
+//            os.writeObject(1.345);
+//            os.writeObject(true);
+//            os.writeObject("a");
+            os.flush();
+            os.close();
+            
+        } catch (FileNotFoundException ex) {
+            System.err.println("Impossibile trovare il file");
+        } catch (IOException ex) {
+            System.err.println("Hai rotto java");
+            }
+//        } catch (ClassNotFoundException ex) {
+//            Logger.getLogger(Seriazlizzazione.class.getName()).log(Level.SEVERE, null, ex);
+//        } 
+        
     }
-    
+
 }
