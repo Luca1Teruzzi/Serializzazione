@@ -18,6 +18,7 @@ public class Studente {
         this.Nome = Nome;
         this.cognome = cognome;
         this.nReg = nReg;
+        
     }
     
     
