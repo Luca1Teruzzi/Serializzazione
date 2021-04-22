@@ -26,34 +26,45 @@ public class Seriazlizzazione {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Studente a=new Studente("Luca", "Teruzzi", 30);
-        try { 
-            FileOutputStream o=new FileOutputStream("test.ser");
-            ObjectOutputStream os=new ObjectOutputStream(o);
-            os.writeObject(9);
-            os.writeObject("Ciao");
-            os.writeObject((float)1.345);
-//            os.writeObject(true);
-//            os.writeObject('a');
+        CreaStudenti cs=new CreaStudenti();
+        Thread t=new Thread(cs);
+        t.start();
+//        Studente[] a=new Studente[3];
+//        a[0]=new Studente("Luca", "Cognome",10);
+//        a[1]=new Studente("A", "B",12);
+//        a[2]=new Studente("AB", "CD",13);
+//        try { 
+//            FileOutputStream o=new FileOutputStream("test.ser");
+//            ObjectOutputStream os=new ObjectOutputStream(o);
+////            os.writeObject(9);
+////            os.writeObject("Ciao");
+////            os.writeObject((float)1.345);
+////            os.writeObject(true);
+////            os.writeObject('a');
+////            os.flush();
+////            os.close()
+//            os.writeObject(a);
 //            os.flush();
 //            os.close();
-            FileInputStream i=new FileInputStream("test.ser");
-            ObjectInputStream is =new ObjectInputStream(i);
-            Integer v1=(Integer) is.readObject();
-            System.out.println("v1:"+v1);
-            String v2=(String) is.readObject();
-            System.out.println("v2:"+v2);
-            Float v3=(Float) is.readObject();
-            System.out.println("v3:"+v3);
-            
-        } catch (FileNotFoundException ex) {
-            System.err.println("Impossibile trovare il file");
-        } catch (IOException ex) {
-            System.err.println("Hai rotto java");
-        } 
-        catch (ClassNotFoundException ex) {
-            Logger.getLogger(Seriazlizzazione.class.getName()).log(Level.SEVERE, null, ex);
-        } 
+//            
+//            FileInputStream i=new FileInputStream("test.ser");
+//            ObjectInputStream is =new ObjectInputStream(i);
+//            Studente [] v1=(Studente[]) is.readObject();
+//            
+//            for(Studente s: v1){
+//                System.out.println(s.toString());
+//            }
+//            is.close();
+//        } catch (FileNotFoundException ex) {
+//            System.err.println("Impossibile trovare il file");
+//        } catch (IOException ex) {
+//            System.err.println("Hai rotto java");
+//        } 
+//        catch (ClassNotFoundException ex) {
+//            Logger.getLogger(Seriazlizzazione.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+        
+  
         
     }
 
